@@ -125,26 +125,33 @@ The API will run on http://localhost:8000
 Plaintext
 rate-limit/
 ├── rate-limit-ui/              # Next.js Frontend
-│   ├── app/                    # Next.js app directory
-│   │   ├── page.tsx            # Main page
-│   │   └── layout.tsx          # Root layout
-│   ├── components/
-│   │   ├── config-form.tsx     # Configuration form
-│   │   └── check-form.tsx      # Request check form
-│   ├── lib/
-│   │   └── api.ts              # API client functions
+│   ├── app/                   # App Router (Next.js)
+│   │   ├── page.tsx           # Main page
+│   │   └── layout.tsx         # Root layout
+│   │
+│   ├── components/            # UI Components
+│   │   ├── config-form.tsx    # Configuration form
+│   │   └── check-form.tsx     # Request check form
+│   │
+│   ├── lib/                   # API layer
+│   │   └── api.ts             # API client functions
+│   │
 │   └── package.json
 │
-└── rate-limit-api/             # FastAPI Backend
-    ├── main.py                 # FastAPI application
-    ├── database.py             # Redis connection
+└── rate-limit-api/            # FastAPI Backend
+    ├── main.py                # Entry point (FastAPI app)
+    ├── database.py            # Redis connection setup
+    │
     ├── middlewares/
-    │   └── rate_limit.py       # Middleware logic
+    │   └── rate_limit.py      # Rate limiting middleware
+    │
     ├── services/
-    │   └── rate_limiter.py      # Rate limiter service
-    ├── strategies/
-    │   ├── sliding_window.py   # Sliding window algorithm
-    │   └── token_bucket.py     # Token bucket algorithm
+    │   └── rate_limiter.py    # Core rate limit logic
+    │
+    ├── strategies/            # Rate limit algorithms
+    │   ├── sliding_window.py  # Sliding Window strategy
+    │   └── token_bucket.py    # Token Bucket strategy
+    │
     └── requirements.txt
 
 ## 6. How It Works
