@@ -122,7 +122,7 @@ The API will run on http://localhost:8000
 - Rate Limit Strategies: Python - Sliding Window & Token Bucket algorithms.
 
 ## 5. Project Structure
-Plaintext
+```text
 rate-limit/
 ├── rate-limit-ui/              # Next.js Frontend
 │   ├── app/                   # App Router (Next.js)
